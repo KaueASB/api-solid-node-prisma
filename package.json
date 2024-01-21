@@ -5,19 +5,24 @@
   "main": "index.js",
   "scripts": {
     "start": "node build/server.js",
-    "dev": "tsx watch src/server.ts",
+    "dev": "tsx watch --env-file .env src/http/server.ts",
+    "lint": "eslint . --ext ts --report-unused-disable-directives --max-warnings 0",
     "build": "tsup src --out-dir build"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@types/node": "^20.11.5",
-    "tsup": "^8.0.1",
-    "tsx": "^4.7.0",
-    "typescript": "^5.3.3"
+    "@rocketseat/eslint-config": "2.1.0",
+    "@types/node": "20.11.5",
+    "eslint": "8.56.0",
+    "eslint-plugin-simple-import-sort": "10.0.0",
+    "tsup": "8.0.1",
+    "tsx": "4.7.0",
+    "typescript": "5.3.3"
   },
   "dependencies": {
-    "fastify": "^4.25.2"
+    "fastify": "4.25.2",
+    "zod": "3.22.4"
   }
 }
