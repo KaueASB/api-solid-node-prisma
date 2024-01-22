@@ -1,6 +1,32 @@
 # App
 
-Gympass Style app
+App Style Gympass. 
+
+## Tecnologias e ferramentas utilizadas
+
+- TypeScript
+- Fastify
+- Vitest
+- Docker Compose
+- Prisma ORM
+- PostegreSQL
+- Eslint
+
+## Foi utilizado os seguintes Design Patterns
+
+- Repository
+- Factory
+
+## Para rodar o projeto
+
+> Atenção: É necessário ter o docker compose instalado
+
+```js
+npm install
+docker-compose up -d
+npx prisma migrate dev
+npm run dev
+```
 
 ## RFs (Requisitos funcionais)
 
