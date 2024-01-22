@@ -10,7 +10,9 @@
     "lint": "eslint . --ext ts --report-unused-disable-directives --max-warnings 0",
     "build": "tsup src --out-dir build",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:ui": "vitest --ui"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +21,8 @@
     "@rocketseat/eslint-config": "2.1.0",
     "@types/bcrypt": "5.0.2",
     "@types/node": "20.11.5",
+    "@vitest/coverage-v8": "1.2.1",
+    "@vitest/ui": "1.2.1",
     "eslint": "8.56.0",
     "eslint-plugin-simple-import-sort": "10.0.0",
     "prisma": "5.8.1",
