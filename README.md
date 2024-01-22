@@ -1,6 +1,6 @@
 # App
 
-App Style Gympass. 
+App Style Gympass.
 
 ## Tecnologias e ferramentas utilizadas
 
@@ -31,8 +31,8 @@ npm run dev
 ## RFs (Requisitos funcionais)
 
 - [x] Deve ser possível se cadastrar
-- [ ] Deve ser possível se autenticar
-- [ ] Deve ser possível obter o perfil do usuário logado
+- [x] Deve ser possível se autenticar
+- [x] Deve ser possível obter o perfil do usuário logado
 - [ ] Deve ser possível obter o número de check-ins realizados pelo usuário logado
 - [ ] Deve ser possível o usuário obter o histórico de check-ins
 - [ ] Deve ser possível o usuário buscar academias próximas
