@@ -7,7 +7,7 @@ import { FetchUserCheckInsHistoryUseCase } from './fetch-user-check-ins-history'
 let checkInsRepository: InMemoryCheckInsRepository
 let sut: FetchUserCheckInsHistoryUseCase
 
-describe.only('Fetch User Check-in History Use Case', () => {
+describe('Fetch User Check-in History Use Case', () => {
   beforeEach(async () => {
     checkInsRepository = new InMemoryCheckInsRepository()
     sut = new FetchUserCheckInsHistoryUseCase(checkInsRepository)
@@ -51,7 +51,7 @@ describe.only('Fetch User Check-in History Use Case', () => {
     )
   })
 
-  it.only('should be able to fetch paginated check-in history ', async () => {
+  it('should be able to fetch paginated check-in history ', async () => {
     for (let index = 1; index <= 22; index++) {
       await checkInsRepository.create({
         user_id: 'user-01',
