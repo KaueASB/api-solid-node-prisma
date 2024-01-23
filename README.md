@@ -45,7 +45,7 @@ npm run dev
 
 - [x] O usuário não pode se cadastrar com um e-mail duplicado
 - [x] O usuário não pode fazer 2 check-ins no mesmo dia
-- [ ] O usuário não pode fazer check-in se não estiver há 100 mts da academia
+- [x] O usuário não pode fazer check-in se não estiver há 100 mts da academia
 - [ ] O check-in só pode ser validado até 20 minutos após ser criado
 - [ ] O check-in só pode ser validado por administradores
 - [ ] A academia só pode ser cadastrada por administradores
