@@ -14,7 +14,6 @@ describe('Search Gyms Use Case', () => {
   })
 
   it('should be able search for gyms', async () => {
-    // for (let index = 1; index <= 22; index++) {
     await gymsRepository.create({
       title: 'TypeScript Gym',
       description: null,
@@ -22,7 +21,6 @@ describe('Search Gyms Use Case', () => {
       latitude: -23.6971343,
       longitude: -46.5063204,
     })
-    // }
 
     await gymsRepository.create({
       title: 'JavaScript Gym',
