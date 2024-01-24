@@ -39,13 +39,14 @@ npm run dev
 - [x] Deve ser possível o usuário buscar academias próximas (até 10km)
 - [x] Deve ser possível o usuário buscar academias pelo nome
 - [x] Deve ser possível o usuário realizar check-in em uma academia
-- [ ] Deve ser possível validar o check-in de um usuário
+- [x] Deve ser possível validar o check-in de um usuário
 - [x] Deve ser possível cadastrar uma academia
 
 ## RNs (Regras de negócio)
 
 - [x] O usuário não pode se cadastrar com um e-mail duplicado
 - [x] O usuário não pode fazer 2 check-ins no mesmo dia
+- [x] O usuário não pode validar o mesmo check-in duas vezes
 - [x] O usuário não pode fazer check-in se não estiver há 100 mts da academia
 - [ ] O check-in só pode ser validado até 20 minutos após ser criado
 - [ ] O check-in só pode ser validado por administradores
