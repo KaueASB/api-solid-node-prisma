@@ -32,6 +32,6 @@ export class CreateGymUseCase {
       longitude,
     })
 
-    return { gym } as CreateGymUseCaseResponse
+    return { gym }
   }
 }
