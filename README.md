@@ -22,6 +22,7 @@ App Style Gympass.
 > Atenção: É necessário ter o docker compose instalado
 
 ```js
+cd api-solid
 npm install
 docker-compose up -d
 npx prisma migrate dev
