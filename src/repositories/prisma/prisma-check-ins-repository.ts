@@ -5,7 +5,7 @@ import { prisma } from '@/lib/prisma'
 
 import { ICheckInsRepository } from '../interface-check-ins-repository'
 
-export class PrismaCheckInRepository implements ICheckInsRepository {
+export class PrismaCheckInsRepository implements ICheckInsRepository {
   async findById(id: string) {
     const checkIn = await prisma.checkIn.findUnique({
       where: {
