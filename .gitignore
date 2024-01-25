@@ -1,5 +1,5 @@
 node_modules
 build
 .env
-middlewares
 coverage
+src/middlewares/error-handler.ts
