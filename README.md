@@ -6,10 +6,11 @@ App Style Gympass.
 
 - TypeScript
 - Fastify
-- Vitest
 - Docker Compose
-- Prisma ORM
 - PostegreSQL
+- Prisma ORM
+- Vitest
+- Supertest
 - Eslint
 
 ## Foi utilizado os seguintes Design Patterns
@@ -57,4 +58,4 @@ npm run dev
 - [x] A senha do usuário precisa estar criptografada
 - [x] Os dados da aplicação precisam estar persistidos em um banco PostgreSQL
 - [x] Todas as listas de dados precisam estar paginadas com 20 itens por página
-- [ ] O Usuário deve ser identificado por um JWT (JSON Web Token)
+- [x] O Usuário deve ser identificado por um JWT (JSON Web Token)
