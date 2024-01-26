@@ -4,6 +4,7 @@ import { ZodError } from 'zod'
 
 import { env } from '@/env'
 
+import { checkInsRoutes } from './controllers/check-ins/routes'
 import { gymsRoutes } from './controllers/gyms/routes'
 import { usersRoutes } from './controllers/users/routes'
 
@@ -13,9 +14,9 @@ app.register(fastifyJwt, {
   secret: env.JWT_SECRET,
 })
 
-// app.register(checkInsRoutes)
-app.register(gymsRoutes)
 app.register(usersRoutes)
+app.register(gymsRoutes)
+app.register(checkInsRoutes)
 
 app.get('/', (_, reply) => {
   return reply.send('Hello World')
