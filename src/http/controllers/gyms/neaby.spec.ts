@@ -48,8 +48,6 @@ describe('Nearby Gyms (e2e)', () => {
       })
       .auth(token, { type: 'bearer' })
 
-    console.log(response.body.gyms)
-
     expect(response.status).toBe(200)
 
     expect(response.body.gyms).toHaveLength(1)
