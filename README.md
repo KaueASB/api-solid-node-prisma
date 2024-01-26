@@ -50,8 +50,8 @@ npm run dev
 - [x] O usuário não pode validar o mesmo check-in duas vezes
 - [x] O usuário não pode fazer check-in se não estiver há 100 mts da academia
 - [x] O check-in só pode ser validado até 20 minutos após ser criado
-- [ ] O check-in só pode ser validado por administradores
-- [ ] A academia só pode ser cadastrada por administradores
+- [x] O check-in só pode ser validado por administradores
+- [x] A academia só pode ser cadastrada por administradores
 
 ## RNFs (Requisitos não funcionais)
 
