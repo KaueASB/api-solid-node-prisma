@@ -5,7 +5,7 @@ import { createAndAuthenticateUser } from '@/utils/test/create-and-authenticate-
 
 import { app } from '../../app'
 
-describe('Search Gyms (e2e)', () => {
+describe('Nearby Gyms (e2e)', () => {
   beforeAll(async () => {
     await app.ready()
   })
@@ -14,44 +14,48 @@ describe('Search Gyms (e2e)', () => {
     await app.close()
   })
 
-  it('should be able to search gyms by title', async () => {
+  it('should be able to list nearby gyms', async () => {
     const { token } = await createAndAuthenticateUser(app)
 
     await request(app.server)
       .post('/gyms')
       .auth(token, { type: 'bearer' })
       .send({
-        title: 'TypeScript Gym',
-        description: 'Some description',
-        phone: '11912345678',
-        latitude: -23.6971343,
-        longitude: -46.5063204,
+        title: 'Near Gym',
+        description: null,
+        phone: null,
+        latitude: -23.6891543,
+        longitude: -46.5069305,
       })
 
     await request(app.server)
       .post('/gyms')
       .auth(token, { type: 'bearer' })
       .send({
-        title: 'JavaScript Gym',
-        description: 'Some description',
-        phone: '11912345678',
-        latitude: -23.6971343,
-        longitude: -46.5063204,
+        title: 'Far Gym',
+        description: null,
+        phone: null,
+        latitude: -23.1867991,
+        longitude: -46.2025623,
       })
 
     const response = await request(app.server)
-      .get('/gyms/search?query=scr')
+      .get('/gyms/nearby')
+      .query({
+        latitude: -23.6891543,
+        longitude: -46.5069305,
+        page: 1,
+      })
       .auth(token, { type: 'bearer' })
+
+    console.log(response.body.gyms)
 
     expect(response.status).toBe(200)
 
-    expect(response.body.gyms).toHaveLength(2)
+    expect(response.body.gyms).toHaveLength(1)
     expect(response.body.gyms).toEqual([
       expect.objectContaining({
-        title: expect.stringContaining('TypeScript'),
-      }),
-      expect.objectContaining({
-        title: expect.stringContaining('JavaScript'),
+        title: 'Near Gym',
       }),
     ])
   })
