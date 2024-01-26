@@ -1,6 +1,6 @@
 import { FastifyInstance } from 'fastify'
 
-import { verifyJwt } from '../middlewares/verify-jwt'
+import { verifyJwt } from '../../middlewares/verify-jwt'
 import { create } from './create'
 import { history } from './history'
 import { metrics } from './metrics'
