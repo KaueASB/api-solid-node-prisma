@@ -10,7 +10,7 @@ Bem-vindo ao GymCheck API! Uma plataforma inspirada no modelo Gympass, criada pa
 
 ### Tecnologias e ferramentas utilizadas
 
-- [TypeScript]()
+- [TypeScript](https://www.typescriptlang.org/)
 - [Fastify](https://fastify.dev/docs/latest/Guides/Getting-Started/)
 - [Docker Compose](https://docs.docker.com/compose)
 - [PostegreSQL](https://www.postgresql.org/)
@@ -85,6 +85,7 @@ Agora você está pronto para explorar o projeto localmente. 😊
 - [x] Deve ser possível o usuário realizar check-in em uma academia
 - [x] Deve ser possível validar o check-in de um usuário
 - [x] Deve ser possível cadastrar uma academia
+
 </details>
 
 <details>
@@ -99,6 +100,7 @@ Agora você está pronto para explorar o projeto localmente. 😊
 - [x] O check-in só pode ser validado até 20 minutos após ser criado
 - [x] O check-in só pode ser validado por administradores
 - [x] A academia só pode ser cadastrada por administradores
+
 </details>
 
 <details>
@@ -110,4 +112,5 @@ Agora você está pronto para explorar o projeto localmente. 😊
 - [x] Os dados da aplicação precisam estar persistidos em um banco PostgreSQL
 - [x] Todas as listas de dados precisam estar paginadas com 20 itens por página
 - [x] O Usuário deve ser identificado por um JWT (JSON Web Token)
+
 </details>
