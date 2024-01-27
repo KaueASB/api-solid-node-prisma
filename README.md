@@ -70,7 +70,10 @@ Certifique-se de configurar as variáveis de ambiente necessárias em um arquivo
 
 Agora você está pronto para explorar o projeto localmente. 😊
 
-### RFs (Requisitos funcionais)
+<details>
+    <summary>
+        <h2>RFs (Requisitos funcionais)</h2>
+    </summary>
 
 - [x] Deve ser possível se cadastrar
 - [x] Deve ser possível se autenticar
@@ -82,8 +85,12 @@ Agora você está pronto para explorar o projeto localmente. 😊
 - [x] Deve ser possível o usuário realizar check-in em uma academia
 - [x] Deve ser possível validar o check-in de um usuário
 - [x] Deve ser possível cadastrar uma academia
+</details>
 
-### RNs (Regras de negócio)
+<details>
+    <summary>
+        <h2>RNs (Regras de negócio)</h2>
+    </summary>
 
 - [x] O usuário não pode se cadastrar com um e-mail duplicado
 - [x] O usuário não pode fazer 2 check-ins no mesmo dia
@@ -92,10 +99,15 @@ Agora você está pronto para explorar o projeto localmente. 😊
 - [x] O check-in só pode ser validado até 20 minutos após ser criado
 - [x] O check-in só pode ser validado por administradores
 - [x] A academia só pode ser cadastrada por administradores
+</details>
 
-### RNFs (Requisitos não funcionais)
+<details>
+    <summary>
+        <h2>RNFs (Requisitos não funcionais)</h2>
+    </summary>
 
 - [x] A senha do usuário precisa estar criptografada
 - [x] Os dados da aplicação precisam estar persistidos em um banco PostgreSQL
 - [x] Todas as listas de dados precisam estar paginadas com 20 itens por página
 - [x] O Usuário deve ser identificado por um JWT (JSON Web Token)
+</details>
