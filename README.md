@@ -31,7 +31,7 @@ Antes de começar, certifique-se de ter o [Docker Compose](https://docs.docker.c
 1. Clone este repositório:
 
     ```bash
-    git clone https://github.com/seu-usuario/seu-repositorio.git
+    git clone git@github.com:KaueASB/api-solid-node-prisma.git
     cd api-solid
     ```
 
