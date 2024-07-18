@@ -5,7 +5,7 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "start": "node --env-file .env build/http/server-local.cjs",
+    "start": "node --env-file .env build/http/server.cjs",
     "dev": "tsx watch --env-file .env src/http/server-local.ts",
     "lint": "eslint . --ext ts --report-unused-disable-directives --max-warnings 0",
     "build": "tsup src --out-dir build",
