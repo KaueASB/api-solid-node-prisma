@@ -1,8 +1,8 @@
 import type { FastifyReply, FastifyRequest } from 'fastify'
 
-import { app } from './app'
+import { buildApp } from './app'
 
-// const app = buildApp()
+const app = buildApp()
 
 export default async (req: FastifyRequest, res: FastifyReply) => {
   try {

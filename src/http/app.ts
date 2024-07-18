@@ -4,7 +4,7 @@ import fastifyCookie from '@fastify/cookie'
 import fastifyJwt from '@fastify/jwt'
 import fastifySwagger from '@fastify/swagger'
 import fastifySwaggerUi from '@fastify/swagger-ui'
-import fastify from 'fastify'
+import fastify, { type FastifyBaseLogger, type FastifyInstance } from 'fastify'
 import {
   jsonSchemaTransform,
   serializerCompiler,
@@ -19,64 +19,69 @@ import { checkInsRoutes } from './controllers/check-ins/routes'
 import { gymsRoutes } from './controllers/gyms/routes'
 import { usersRoutes } from './controllers/users/routes'
 
-export const app = fastify().withTypeProvider<ZodTypeProvider>()
+export function buildApp(): FastifyInstance<Server<typeof IncomingMessage, typeof ServerResponse>, IncomingMessage, ServerResponse<IncomingMessage>, FastifyBaseLogger, ZodTypeProvider> {
 
-app.setSerializerCompiler(serializerCompiler)
-app.setValidatorCompiler(validatorCompiler)
+  const app = fastify().withTypeProvider<ZodTypeProvider>()
 
-app.register(fastifySwagger, {
-  openapi: {
-    info: {
-      title: 'GymCheck',
-      description: 'API para gerenciamento de academias e check-ins',
-      version: '1.0.0',
-    },
-    components: {
-      securitySchemes: {
-        bearerAuth: {
-          type: 'http',
-          scheme: 'bearer',
-          bearerFormat: 'JWT',
+  app.setSerializerCompiler(serializerCompiler)
+  app.setValidatorCompiler(validatorCompiler)
+
+  app.register(fastifySwagger, {
+    openapi: {
+      info: {
+        title: 'GymCheck',
+        description: 'API para gerenciamento de academias e check-ins',
+        version: '1.0.0',
+      },
+      components: {
+        securitySchemes: {
+          bearerAuth: {
+            type: 'http',
+            scheme: 'bearer',
+            bearerFormat: 'JWT',
+          },
         },
       },
     },
-  },
-  transform: jsonSchemaTransform,
-})
+    transform: jsonSchemaTransform,
+  })
 
-app.register(fastifyJwt, {
-  cookie: {
-    cookieName: 'refreshToken',
-    signed: false,
-  },
-  secret: env.JWT_SECRET,
-  sign: {
-    expiresIn: '10m',
-  },
-})
+  app.register(fastifyJwt, {
+    cookie: {
+      cookieName: 'refreshToken',
+      signed: false,
+    },
+    secret: env.JWT_SECRET,
+    sign: {
+      expiresIn: '10m',
+    },
+  })
 
-app.register(fastifySwaggerUi, {
-  routePrefix: '/docs',
-})
+  app.register(fastifySwaggerUi, {
+    routePrefix: '/docs',
+  })
 
-app.register(fastifyCookie)
+  app.register(fastifyCookie)
 
-app.register(usersRoutes)
-app.register(gymsRoutes)
-app.register(checkInsRoutes)
+  app.register(usersRoutes)
+  app.register(gymsRoutes)
+  app.register(checkInsRoutes)
 
-app.get('/', (_, reply) => {
-  return reply.send('Hello World')
-})
+  app.get('/', (_, reply) => {
+    return reply.send('Hello World')
+  })
 
-app.setErrorHandler((error, _request, reply) => {
-  if (error instanceof ZodError) {
-    return reply
-      .status(400)
-      .send({ message: 'Validation error.', issues: error.format() })
-  }
+  app.setErrorHandler((error, _request, reply) => {
+    if (error instanceof ZodError) {
+      return reply
+        .status(400)
+        .send({ message: 'Validation error.', issues: error.format() })
+    }
 
-  if (env.NODE_ENV !== 'production') console.error(error)
+    if (env.NODE_ENV !== 'production') console.error(error)
 
-  return reply.status(500).send({ message: 'Internal server error.' })
-})
+    return reply.status(500).send({ message: 'Internal server error.' })
+  })
+
+  return app
+}
