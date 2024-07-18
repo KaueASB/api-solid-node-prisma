@@ -63,9 +63,9 @@ export function buildApp(): FastifyInstance<Server<typeof IncomingMessage, typeo
 
   app.register(fastifyCookie)
 
-  app.register(usersRoutes)
-  app.register(gymsRoutes)
-  app.register(checkInsRoutes)
+  app.register(usersRoutes,  { prefix: '/api' })
+  app.register(gymsRoutes,  { prefix: '/api' })
+  app.register(checkInsRoutes,  { prefix: '/api' })
 
   app.get('/', (_, reply) => {
     return reply.send('Hello World')
