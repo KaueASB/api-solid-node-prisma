@@ -1,6 +1,16 @@
+import type { IncomingMessage, Server, ServerResponse } from 'node:http'
+
 import fastifyCookie from '@fastify/cookie'
 import fastifyJwt from '@fastify/jwt'
+import fastifySwagger from '@fastify/swagger'
+import fastifySwaggerUi from '@fastify/swagger-ui'
 import fastify from 'fastify'
+import {
+  jsonSchemaTransform,
+  serializerCompiler,
+  validatorCompiler,
+  ZodTypeProvider,
+} from 'fastify-type-provider-zod'
 import { ZodError } from 'zod'
 
 import { env } from '@/env'
@@ -9,7 +19,30 @@ import { checkInsRoutes } from './controllers/check-ins/routes'
 import { gymsRoutes } from './controllers/gyms/routes'
 import { usersRoutes } from './controllers/users/routes'
 
-export const app = fastify()
+export const app = fastify().withTypeProvider<ZodTypeProvider>()
+
+app.setSerializerCompiler(serializerCompiler)
+app.setValidatorCompiler(validatorCompiler)
+
+app.register(fastifySwagger, {
+  openapi: {
+    info: {
+      title: 'GymCheck',
+      description: 'API para gerenciamento de academias e check-ins',
+      version: '1.0.0',
+    },
+    components: {
+      securitySchemes: {
+        bearerAuth: {
+          type: 'http',
+          scheme: 'bearer',
+          bearerFormat: 'JWT',
+        },
+      },
+    },
+  },
+  transform: jsonSchemaTransform,
+})
 
 app.register(fastifyJwt, {
   cookie: {
@@ -20,6 +53,10 @@ app.register(fastifyJwt, {
   sign: {
     expiresIn: '10m',
   },
+})
+
+app.register(fastifySwaggerUi, {
+  routePrefix: '/docs',
 })
 
 app.register(fastifyCookie)

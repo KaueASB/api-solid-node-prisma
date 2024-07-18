@@ -1,12 +1,14 @@
-import { env } from '@/env'
+import type { FastifyReply, FastifyRequest } from 'fastify'
 
 import { app } from './app'
 
-app
-  .listen({
-    host: '0.0.0.0',
-    port: env.PORT,
-  })
-  .then(() => {
-    console.log(`HTTP Server Running at port :${env.PORT}!`)
-  })
+// const app = buildApp()
+
+export default async (req: FastifyRequest, res: FastifyReply) => {
+  try {
+    await app.ready()
+    app.server.emit('request', req, res)
+  } catch (error) {
+    console.error('Erro ao lidar com a requisição:', error)
+  }
+}

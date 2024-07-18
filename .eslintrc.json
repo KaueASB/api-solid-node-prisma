@@ -1,6 +1,6 @@
 {
   "extends": [
-    "@rocketseat/eslint-config/react"
+    "@rocketseat/eslint-config/node"
   ],
   "plugins": [
     "simple-import-sort"
